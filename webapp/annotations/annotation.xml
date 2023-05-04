@@ -13,6 +13,30 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="dsc.eam.ui">
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.ConsPointType">
+                <Annotation Term="Common.SideEffects">
+                    <Record>
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>ObjectText</PropertyPath>
+                                <PropertyPath>SuperiorFunctionalLocation</PropertyPath>
+                                <PropertyPath>TechnicalObjectType</PropertyPath>
+                                <PropertyPath>StartDate</PropertyPath>
+                                <PropertyPath>ValueChar</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <PropertyPath>to_Characs</PropertyPath>
+                                <PropertyPath>LastChangeDateTime</PropertyPath>
+                                <PropertyPath>LastChangedAt</PropertyPath>
+                                <PropertyPath>LastChangedBy</PropertyPath>
+                                <PropertyPath>LastChangedByUser</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
