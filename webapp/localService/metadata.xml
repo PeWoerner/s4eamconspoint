@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+        <edmx:Include Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_xdscxeam_ui_conspoint_srv" xml:lang="de" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="CharacsType" sap:label="Projection Merkmale zu techn. Objekt" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ObjectId"/>
+                    <PropertyRef Name="Clint"/>
+                    <PropertyRef Name="CharacName"/>
+                </Key>
+                <Property Name="ObjectId" Type="Edm.String" Nullable="false" MaxLength="90" sap:label="Objekt" sap:quickinfo="Schlüssel des zu klassifizierenden Objektes" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Clint" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="NonNegative" sap:label="Int.Klasnr" sap:quickinfo="Interne Klassennummer"/>
+                <Property Name="CharacName" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Merkmalname" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CharacCounter" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="int. Zähler" sap:quickinfo="Interner Zaehler für Objektablage durch Änderungsdienst"/>
+                <Property Name="CharacDescription" Type="Edm.String" MaxLength="30" sap:label="Merkmalbezeichnung" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CharacInfo" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:text="CharacDescription" sap:label="Merkmalname" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ClassName" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Klasse" sap:quickinfo="Klassennummer"/>
+                <Property Name="ClassType" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Klassenart" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DataType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Format" sap:quickinfo="Datentyp des Merkmals" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Atinn" Type="Edm.String" MaxLength="30" sap:display-format="NonNegative" sap:label="Int. Merkmalsnummer" sap:quickinfo="DSC: EAM UI - Int. Merkmal" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="FieldLen" Type="Edm.Int16" sap:label="Anzahl Stellen"/>
+                <Property Name="Decimals" Type="Edm.Int16" sap:label="Dezimalstellen" sap:quickinfo="Anzahl Dezimalstellen"/>
+                <Property Name="ValueChar" Type="Edm.String" MaxLength="70" sap:label="Merkmalwert"/>
+                <Property Name="ValueDecFrom" Type="Edm.Decimal" Precision="31" Scale="14" sap:label="Untergrenze numer." sap:quickinfo="Untergrenze für numerisches Feld"/>
+                <Property Name="ValueDecTo" Type="Edm.Decimal" Precision="31" Scale="14" sap:label="Obergrenze numerisch" sap:quickinfo="Obergrenze für numerisches Feld"/>
+                <NavigationProperty Name="to_FunctionalLocation" Relationship="cds_xdscxeam_ui_conspoint_srv.assoc_3218C6A1E5D3C95BF296796237988F6D" FromRole="FromRole_assoc_3218C6A1E5D3C95BF296796237988F6D" ToRole="ToRole_assoc_3218C6A1E5D3C95BF296796237988F6D"/>
+            </EntityType>
+            <EntityType Name="ClassesType" sap:label="Projection Klasse(n) zu techn. Objekt" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ObjectId"/>
+                    <PropertyRef Name="Clint"/>
+                </Key>
+                <Property Name="ObjectId" Type="Edm.String" Nullable="false" MaxLength="90" sap:label="Objekt" sap:quickinfo="Schlüssel des zu klassifizierenden Objektes"/>
+                <Property Name="Clint" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="NonNegative" sap:label="Int.Klasnr" sap:quickinfo="Interne Klassennummer"/>
+                <Property Name="ClassType" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:text="ClassTypeText" sap:label="Klassenart"/>
+                <Property Name="ClassTypeText" Type="Edm.String" MaxLength="40" sap:label="Klassenartentext" sap:quickinfo="Bezeichnung der Klassenart"/>
+                <Property Name="ClassNum" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Klasse" sap:quickinfo="Klassennummer"/>
+                <Property Name="ClassBez" Type="Edm.String" MaxLength="40" sap:label="Schlagwort" sap:quickinfo="Schlagwörter"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="ClassStatusText" sap:label="Status" sap:quickinfo="Status der Klassifizierung"/>
+                <Property Name="ClassStatusText" Type="Edm.String" MaxLength="40" sap:label="Text" sap:quickinfo="Text zu einem Tabelleneintrag"/>
+                <Property Name="StandardClass" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Standardklasse" sap:quickinfo="Kennzeichen: Standardklasse"/>
+            </EntityType>
+            <EntityType Name="ConsPointType" sap:label="Projection Entity Verbrauchsstelle" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FunctionalLocation"/>
+                </Key>
+                <Property Name="FunctionalLocation" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Technischer Platz" sap:quickinfo="DSC: EAM UI - Techn. Platz" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="FunctionalLocationCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Typ TechnPlatz" sap:quickinfo="Typ des Technischen Platzes" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="FuncLocationStructure" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Strukturkennzeichen" sap:quickinfo="Strukturkennzeichen Technischer Platz" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SuperiorFunctionalLocation" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Technischer Platz" sap:quickinfo="DSC: EAM UI - Techn. Platz" sap:value-list="standard"/>
+                <Property Name="FuncLocCategoryInternal" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Int.Typ techn. Platz" sap:quickinfo="DSC: Typ techn. Platz (intern)"/>
+                <Property Name="MaintObjectInternalID" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Objektnummer"/>
+                <Property Name="Iloan" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Standort/Kontierung" sap:quickinfo="Standort und Kontierung zum technischen Objekt"/>
+                <Property Name="FunctionalLocationPosition" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Position am Objekt" sap:quickinfo="Position am übergeordneten technischen Objekt"/>
+                <Property Name="TechnicalObjectType" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="TechnicalObjectTypeDesc" sap:label="Objektart" sap:quickinfo="Art des technischen Objekts" sap:value-list="fixed-values"/>
+                <Property Name="TechnicalObjectTypeDesc" Type="Edm.String" MaxLength="20" sap:label="Text Objektart" sap:quickinfo="Text für die Objektart" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="StartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="In Betrieb ab" sap:quickinfo="Datum der Inbetriebnahme des Technischen Objekts"/>
+                <Property Name="ObjectText" Type="Edm.String" MaxLength="40" sap:label="TechnPlatzBezeichng" sap:quickinfo="Bezeichnung des Technischen Platzes"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:text="StatusText" sap:label="Status" sap:quickinfo="Einzelstatus eines Objekts" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="StatusText" Type="Edm.String" MaxLength="30" sap:label="Status" sap:quickinfo="Einzelstatus eines Objekts"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:text="CountryName" sap:label="Länder-/RegSchlüssel" sap:quickinfo="Länder-/Regionenschlüssel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CountryName" Type="Edm.String" MaxLength="50" sap:label="Bezeich. Land/Region" sap:quickinfo="Bezeichnung des Landes/der Region" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:text="RegionName" sap:label="Region" sap:quickinfo="Region (Bundesstaat, Bundesland, Provinz, Grafschaft)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RegionName" Type="Edm.String" MaxLength="20" sap:label="Bezeichnung" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postleitzahl" sap:quickinfo="Postleitzahl des Orts" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CityName" Type="Edm.String" MaxLength="40" sap:label="Ort" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="StreetName" Type="Edm.String" MaxLength="60" sap:label="Straße" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HouseNumber" Type="Edm.String" MaxLength="10" sap:label="Hausnummer" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HouseNumberSupplementText" Type="Edm.String" MaxLength="10" sap:label="Zusatz" sap:quickinfo="Ergänzung zur Hausnummer" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Latitude" Type="Edm.Decimal" Precision="15" Scale="12" sap:label="Breitengrad" sap:quickinfo="Breitengrad der Geo-Location" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Longitude" Type="Edm.Decimal" Precision="15" Scale="12" sap:label="Längengrad" sap:quickinfo="Längengrad der Geo-Location" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="80" sap:label="Vollständiger Name" sap:quickinfo="Vollständiger Name der Person" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Angelegt von" sap:quickinfo="Name des Anwenders, der das Objekt angelegt hat" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Angelegt am" sap:quickinfo="Datum, an dem das Objekt angelegt wurde" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="80" sap:label="Vollständiger Name" sap:quickinfo="Vollständiger Name der Person" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Geändert von" sap:quickinfo="Name des Anwenders, der das Objekt zuletzt geändert hat" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Geändert am" sap:quickinfo="Datum, an dem das Objekt zuletzt geändert wurde"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Kurzform Zeitstempel" sap:quickinfo="UTC-Zeitstempel in Kurzform (JJJJMMTThhmmss)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="etag" Type="Edm.String" MaxLength="40" sap:label="Hash-Wert" sap:quickinfo="Hash-Wert (160 Bits)"/>
+                <NavigationProperty Name="to_Characs" Relationship="cds_xdscxeam_ui_conspoint_srv.assoc_06BF29571E460313758DE24C5148A38E" FromRole="FromRole_assoc_06BF29571E460313758DE24C5148A38E" ToRole="ToRole_assoc_06BF29571E460313758DE24C5148A38E"/>
+                <NavigationProperty Name="to_Classes" Relationship="cds_xdscxeam_ui_conspoint_srv.assoc_114DE7C85887F6B580F72A1C2D5A5E5E" FromRole="FromRole_assoc_114DE7C85887F6B580F72A1C2D5A5E5E" ToRole="ToRole_assoc_114DE7C85887F6B580F72A1C2D5A5E5E"/>
+                <NavigationProperty Name="to_Partners" Relationship="cds_xdscxeam_ui_conspoint_srv.assoc_63EEC18B8ADB8E3D12B12D4873F20903" FromRole="FromRole_assoc_63EEC18B8ADB8E3D12B12D4873F20903" ToRole="ToRole_assoc_63EEC18B8ADB8E3D12B12D4873F20903"/>
+            </EntityType>
+            <EntityType Name="PartnersType" sap:label="Projection Partner zu VBS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FunctionalLocation"/>
+                    <PropertyRef Name="PartnerRole"/>
+                    <PropertyRef Name="PartnerId"/>
+                    <PropertyRef Name="Counter"/>
+                </Key>
+                <Property Name="FunctionalLocation" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Technischer Platz" sap:quickinfo="DSC: EAM UI - Techn. Platz" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PartnerRole" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:text="ParVWText" sap:label="Partnerrolle" sap:quickinfo="DSC: EAM UI - Partnerrolle" sap:value-list="fixed-values"/>
+                <Property Name="PartnerId" Type="Edm.String" Nullable="false" MaxLength="12" sap:value-list="standard"/>
+                <Property Name="Counter" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Zähler" sap:quickinfo="Counter zur Unterscheidung 6-stellig"/>
+                <Property Name="FunctionalLocationCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Typ TechnPlatz" sap:quickinfo="Typ des Technischen Platzes" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ParVWText" Type="Edm.String" MaxLength="20" sap:label="Bezeichnung" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PartnerName" Type="Edm.String" MaxLength="50" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Angelegt am" sap:quickinfo="Datum, an dem der Satz hinzugefügt wurde" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationTime" Type="Edm.Time" Precision="0" sap:label="Angelegt um" sap:quickinfo="Uhrzeit, zu der der Satz hinzugefügt wurde" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Angelegt von" sap:quickinfo="Name des Sachbearbeiters, der das Objekt hinzugefügt hat" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="80" sap:label="Vollständiger Name" sap:quickinfo="Vollständiger Name der Person" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Geändert am" sap:quickinfo="Datum der letzten Änderung" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangeTime" Type="Edm.Time" Precision="0" sap:label="Änderungsuhrzeit" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Geändert von" sap:quickinfo="Name des Sachbearbeiters, der das Objekt geändert hat." sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_FunctionalLocation" Relationship="cds_xdscxeam_ui_conspoint_srv.assoc_42A6BAA18453C87F791EEA895F4C7715" FromRole="FromRole_assoc_42A6BAA18453C87F791EEA895F4C7715" ToRole="ToRole_assoc_42A6BAA18453C87F791EEA895F4C7715"/>
+            </EntityType>
+            <EntityType Name="RegionVHType" sap:label="Projection Suchhilfe Region" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Country"/>
+                    <PropertyRef Name="Region"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Länder-/RegSchlüssel" sap:quickinfo="Länder-/Regionenschlüssel"/>
+                <Property Name="Region" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="RegionName" sap:label="Region" sap:quickinfo="Region (Bundesstaat, Bundesland, Provinz, Grafschaft)"/>
+                <Property Name="RegionName" Type="Edm.String" MaxLength="20" sap:label="Bezeichnung"/>
+            </EntityType>
+            <EntityType Name="RelevantCountryVHType" sap:label="Projection Suchhilfe relev. Länder" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Country"/>
+                </Key>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="CountryName" sap:label="Länder-/RegSchlüssel" sap:quickinfo="Länder-/Regionenschlüssel"/>
+                <Property Name="CountryName" Type="Edm.String" MaxLength="50" sap:label="Bezeich. Land/Region" sap:quickinfo="Bezeichnung des Landes/der Region"/>
+            </EntityType>
+            <EntityType Name="RolesByFLTypeVHType" sap:label="Wertehilfe Typ Par.Rollen techn. Obj." sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FunctionalLocationCategory"/>
+                    <PropertyRef Name="ParVW"/>
+                </Key>
+                <Property Name="FunctionalLocationCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Typ TechnPlatz" sap:quickinfo="Typ des Technischen Platzes"/>
+                <Property Name="ParVW" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:text="ParVWText" sap:label="Partnerrolle" sap:quickinfo="DSC: EAM UI - Partnerrolle"/>
+                <Property Name="ParVWText" Type="Edm.String" MaxLength="20" sap:label="Bezeichnung"/>
+                <Property Name="FuncLocCategoryInternal" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Int.Typ techn. Platz" sap:quickinfo="DSC: Typ techn. Platz (intern)"/>
+            </EntityType>
+            <EntityType Name="SupFuncLocVHType" sap:label="Projection VH SupFloc f. Anschl.Objekt" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FunctionalLocation"/>
+                </Key>
+                <Property Name="FunctionalLocation" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Technischer Platz" sap:quickinfo="DSC: EAM UI - Techn. Platz"/>
+                <Property Name="FuncLocationStructure" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Strukturkennzeichen" sap:quickinfo="Strukturkennzeichen Technischer Platz"/>
+                <Property Name="FunctionalLocationCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Typ TechnPlatz" sap:quickinfo="Typ des Technischen Platzes" sap:value-list="standard"/>
+                <Property Name="FuncLocCategoryInternal" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Int.Typ techn. Platz" sap:quickinfo="DSC: Typ techn. Platz (intern)"/>
+                <Property Name="TechnicalObjectType" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Objektart" sap:quickinfo="Art des technischen Objekts" sap:value-list="standard"/>
+                <Property Name="StartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="In Betrieb ab" sap:quickinfo="Datum der Inbetriebnahme des Technischen Objekts"/>
+                <Property Name="FunctionalLocationDesc" Type="Edm.String" MaxLength="40" sap:label="Bezeichnung" sap:quickinfo="Bezeichnung des Technischen Platzes"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Länder-/RegSchlüssel" sap:quickinfo="Länder-/Regionenschlüssel"/>
+                <Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postleitzahl" sap:quickinfo="Postleitzahl des Orts"/>
+                <Property Name="CityName" Type="Edm.String" MaxLength="40" sap:label="Ort"/>
+                <Property Name="StreetName" Type="Edm.String" MaxLength="60" sap:label="Straße"/>
+                <Property Name="HouseNumber" Type="Edm.String" MaxLength="10" sap:label="Hausnummer"/>
+                <Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Region" sap:quickinfo="Region (Bundesstaat, Bundesland, Provinz, Grafschaft)"/>
+            </EntityType>
+            <EntityType Name="TechObjTypeVHType" sap:label="Wertehilfe Typ techn. Objekt" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TechnicalObjectType"/>
+                </Key>
+                <Property Name="TechnicalObjectType" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="TechnicalObjectTypeDesc" sap:label="Objektart" sap:quickinfo="Art des technischen Objekts"/>
+                <Property Name="FuncLocCategoryInternal" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Int.Typ techn. Platz" sap:quickinfo="DSC: Typ techn. Platz (intern)"/>
+                <Property Name="TechnicalObjectTypeDesc" Type="Edm.String" MaxLength="20" sap:label="Text Objektart" sap:quickinfo="Text für die Objektart"/>
+            </EntityType>
+            <EntityType Name="TechObjStatusVHType" sap:label="Wertehilfe Status TO" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StatusSchema"/>
+                    <PropertyRef Name="EStat"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="StatusSchema" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="Statusschema"/>
+                <Property Name="EStat" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="UpperCase" sap:label="Anwenderstatus"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Sprachenschlüssel"/>
+                <Property Name="StatusShortText" Type="Edm.String" MaxLength="4" sap:label="Status" sap:quickinfo="Einzelstatus eines Objekts (Kurzform)"/>
+                <Property Name="StatusText" Type="Edm.String" MaxLength="30" sap:label="Status" sap:quickinfo="Einzelstatus eines Objekts"/>
+                <Property Name="FunclocType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Typ TechnPlatz" sap:quickinfo="Typ des Technischen Platzes"/>
+            </EntityType>
+            <EntityType Name="RoleParCustVHType" sap:label="Suchhilfe EAM Partner" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Parvw"/>
+                    <PropertyRef Name="Partner"/>
+                </Key>
+                <Property Name="Parvw" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Partnerrolle" sap:quickinfo="DSC: EAM UI - Partnerrolle"/>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Partner-ID" sap:quickinfo="Charakterfeld der Länge 12"/>
+                <Property Name="MC_NAME1" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Name1/Nachname" sap:quickinfo="Suchhilfefeld 1 (Name 1/Nachname)"/>
+                <Property Name="MC_NAME2" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Name2/Vorname" sap:quickinfo="Suchhilfefeld 2 (Name 2/Vorname)"/>
+                <Property Name="POST_CODE1" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Postleitzahl" sap:quickinfo="Postleitzahl des Orts"/>
+                <Property Name="MC_CITY1" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Ort" sap:quickinfo="Ortsname in Großbuchstaben für Suchhilfe"/>
+                <Property Name="MC_STREET" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Straße" sap:quickinfo="Straßenname in Großbuchstaben für Suchhilfe"/>
+                <Property Name="HOUSE_NUM1" Type="Edm.String" MaxLength="10" sap:label="Hausnummer"/>
+            </EntityType>
+            <EntityType Name="I_FuncnlLocCatStdVHType" sap:label="Art des Technischen Platzes" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FunctionalLocationCategory"/>
+                </Key>
+                <Property Name="FunctionalLocationCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:text="FunctionalLocationCategory_Text" sap:label="Typ TechnPlatz" sap:quickinfo="Typ des Technischen Platzes"/>
+                <Property Name="FunctionalLocationCategory_Text" Type="Edm.String" MaxLength="30" sap:label="Bezeichnung" sap:quickinfo="Bezeichnung zum Typ des Technischen Platzes" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="I_TechnicalObjectTypeStdVHType" sap:label="Art des technischen Objekts" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TechnicalObjectType"/>
+                </Key>
+                <Property Name="TechnicalObjectType" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="TechnicalObjectType_Text" sap:label="Objektart" sap:quickinfo="Art des technischen Objekts"/>
+                <Property Name="TechnicalObjectType_Text" Type="Edm.String" MaxLength="20" sap:label="Text Objektart" sap:quickinfo="Text für die Objektart" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CurrencyCode"/>
+                </Key>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Währung" sap:semantics="currency-code"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Iso-Code"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Kurztext"/>
+                <Property Name="DecimalPlaces" Type="Edm.Byte" Nullable="false" sap:label="Dezimalen"/>
+            </EntityType>
+            <EntityType Name="SAP__UnitOfMeasure" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UnitCode"/>
+                </Key>
+                <Property Name="UnitCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Interne Maßeinheit" sap:semantics="unit-of-measure"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="ISO-Code"/>
+                <Property Name="ExternalCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Kaufmännisch"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Maßeinheitentext"/>
+                <Property Name="DecimalPlaces" Type="Edm.Int16" sap:label="Dezimalstellen"/>
+            </EntityType>
+            <Association Name="assoc_06BF29571E460313758DE24C5148A38E" sap:content-version="1">
+                <End Type="cds_xdscxeam_ui_conspoint_srv.ConsPointType" Multiplicity="1" Role="FromRole_assoc_06BF29571E460313758DE24C5148A38E">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_xdscxeam_ui_conspoint_srv.CharacsType" Multiplicity="*" Role="ToRole_assoc_06BF29571E460313758DE24C5148A38E"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_06BF29571E460313758DE24C5148A38E">
+                        <PropertyRef Name="FunctionalLocation"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_06BF29571E460313758DE24C5148A38E">
+                        <PropertyRef Name="ObjectId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_114DE7C85887F6B580F72A1C2D5A5E5E" sap:content-version="1">
+                <End Type="cds_xdscxeam_ui_conspoint_srv.ConsPointType" Multiplicity="1" Role="FromRole_assoc_114DE7C85887F6B580F72A1C2D5A5E5E"/>
+                <End Type="cds_xdscxeam_ui_conspoint_srv.ClassesType" Multiplicity="*" Role="ToRole_assoc_114DE7C85887F6B580F72A1C2D5A5E5E"/>
+            </Association>
+            <Association Name="assoc_63EEC18B8ADB8E3D12B12D4873F20903" sap:content-version="1">
+                <End Type="cds_xdscxeam_ui_conspoint_srv.ConsPointType" Multiplicity="1" Role="FromRole_assoc_63EEC18B8ADB8E3D12B12D4873F20903">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_xdscxeam_ui_conspoint_srv.PartnersType" Multiplicity="*" Role="ToRole_assoc_63EEC18B8ADB8E3D12B12D4873F20903"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_63EEC18B8ADB8E3D12B12D4873F20903">
+                        <PropertyRef Name="FunctionalLocation"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_63EEC18B8ADB8E3D12B12D4873F20903">
+                        <PropertyRef Name="FunctionalLocation"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_42A6BAA18453C87F791EEA895F4C7715" sap:content-version="1">
+                <End Type="cds_xdscxeam_ui_conspoint_srv.PartnersType" Multiplicity="1" Role="FromRole_assoc_42A6BAA18453C87F791EEA895F4C7715"/>
+                <End Type="cds_xdscxeam_ui_conspoint_srv.ConsPointType" Multiplicity="1" Role="ToRole_assoc_42A6BAA18453C87F791EEA895F4C7715"/>
+            </Association>
+            <Association Name="assoc_3218C6A1E5D3C95BF296796237988F6D" sap:content-version="1">
+                <End Type="cds_xdscxeam_ui_conspoint_srv.CharacsType" Multiplicity="1" Role="FromRole_assoc_3218C6A1E5D3C95BF296796237988F6D"/>
+                <End Type="cds_xdscxeam_ui_conspoint_srv.ConsPointType" Multiplicity="1" Role="ToRole_assoc_3218C6A1E5D3C95BF296796237988F6D"/>
+            </Association>
+            <EntityContainer Name="cds_xdscxeam_ui_conspoint_srv_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SAP__Currencies" EntityType="cds_xdscxeam_ui_conspoint_srv.SAP__Currency" sap:content-version="1"/>
+                <EntitySet Name="SAP__UnitsOfMeasure" EntityType="cds_xdscxeam_ui_conspoint_srv.SAP__UnitOfMeasure" sap:content-version="1"/>
+                <EntitySet Name="Characs" EntityType="cds_xdscxeam_ui_conspoint_srv.CharacsType" sap:creatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Classes" EntityType="cds_xdscxeam_ui_conspoint_srv.ClassesType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ConsPoint" EntityType="cds_xdscxeam_ui_conspoint_srv.ConsPointType" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Partners" EntityType="cds_xdscxeam_ui_conspoint_srv.PartnersType" sap:updatable="false" sap:content-version="1"/>
+                <EntitySet Name="RegionVH" EntityType="cds_xdscxeam_ui_conspoint_srv.RegionVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="RelevantCountryVH" EntityType="cds_xdscxeam_ui_conspoint_srv.RelevantCountryVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="RolesByFLTypeVH" EntityType="cds_xdscxeam_ui_conspoint_srv.RolesByFLTypeVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SupFuncLocVH" EntityType="cds_xdscxeam_ui_conspoint_srv.SupFuncLocVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="TechObjTypeVH" EntityType="cds_xdscxeam_ui_conspoint_srv.TechObjTypeVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="TechObjStatusVH" EntityType="cds_xdscxeam_ui_conspoint_srv.TechObjStatusVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="RoleParCustVH" EntityType="cds_xdscxeam_ui_conspoint_srv.RoleParCustVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_FuncnlLocCatStdVH" EntityType="cds_xdscxeam_ui_conspoint_srv.I_FuncnlLocCatStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_TechnicalObjectTypeStdVH" EntityType="cds_xdscxeam_ui_conspoint_srv.I_TechnicalObjectTypeStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_06BF29571E460313758DE24C5148A38E" Association="cds_xdscxeam_ui_conspoint_srv.assoc_06BF29571E460313758DE24C5148A38E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ConsPoint" Role="FromRole_assoc_06BF29571E460313758DE24C5148A38E"/>
+                    <End EntitySet="Characs" Role="ToRole_assoc_06BF29571E460313758DE24C5148A38E"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_3218C6A1E5D3C95BF296796237988F6D" Association="cds_xdscxeam_ui_conspoint_srv.assoc_3218C6A1E5D3C95BF296796237988F6D" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Characs" Role="FromRole_assoc_3218C6A1E5D3C95BF296796237988F6D"/>
+                    <End EntitySet="ConsPoint" Role="ToRole_assoc_3218C6A1E5D3C95BF296796237988F6D"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_42A6BAA18453C87F791EEA895F4C7715" Association="cds_xdscxeam_ui_conspoint_srv.assoc_42A6BAA18453C87F791EEA895F4C7715" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Partners" Role="FromRole_assoc_42A6BAA18453C87F791EEA895F4C7715"/>
+                    <End EntitySet="ConsPoint" Role="ToRole_assoc_42A6BAA18453C87F791EEA895F4C7715"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_63EEC18B8ADB8E3D12B12D4873F20903" Association="cds_xdscxeam_ui_conspoint_srv.assoc_63EEC18B8ADB8E3D12B12D4873F20903" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ConsPoint" Role="FromRole_assoc_63EEC18B8ADB8E3D12B12D4873F20903"/>
+                    <End EntitySet="Partners" Role="ToRole_assoc_63EEC18B8ADB8E3D12B12D4873F20903"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_114DE7C85887F6B580F72A1C2D5A5E5E" Association="cds_xdscxeam_ui_conspoint_srv.assoc_114DE7C85887F6B580F72A1C2D5A5E5E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ConsPoint" Role="FromRole_assoc_114DE7C85887F6B580F72A1C2D5A5E5E"/>
+                    <End EntitySet="Classes" Role="ToRole_assoc_114DE7C85887F6B580F72A1C2D5A5E5E"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.ConsPointType/SuperiorFunctionalLocation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Technischer Platz"/>
+                        <PropertyValue Property="CollectionPath" String="SupFuncLocVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SuperiorFunctionalLocation"/>
+                                    <PropertyValue Property="ValueListProperty" String="FunctionalLocation"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FuncLocationStructure"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FunctionalLocationCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FuncLocCategoryInternal"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TechnicalObjectType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StartDate"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FunctionalLocationDesc"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PostalCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CityName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StreetName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="HouseNumber"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Region"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterConstant">
+                                    <PropertyValue Property="Constant" String="PR"/>
+                                    <PropertyValue Property="ValueListProperty" String="FuncLocCategoryInternal"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.ConsPointType/TechnicalObjectType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Objektart"/>
+                        <PropertyValue Property="CollectionPath" String="TechObjTypeVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TechnicalObjectType"/>
+                                    <PropertyValue Property="ValueListProperty" String="TechnicalObjectType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FuncLocCategoryInternal"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TechnicalObjectTypeDesc"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterConstant">
+                                    <PropertyValue Property="Constant" String="PR"/>
+                                    <PropertyValue Property="ValueListProperty" String="FuncLocCategoryInternal"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.ConsPointType/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Status"/>
+                        <PropertyValue Property="CollectionPath" String="TechObjStatusVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Status"/>
+                                    <PropertyValue Property="ValueListProperty" String="EStat"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="FunctionalLocationCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="FunclocType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StatusSchema"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Language"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StatusShortText"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StatusText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.PartnersType/PartnerRole" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Partnerrolle"/>
+                        <PropertyValue Property="CollectionPath" String="RolesByFLTypeVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="PartnerRole"/>
+                                    <PropertyValue Property="ValueListProperty" String="ParVW"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FunctionalLocationCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ParVWText"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FuncLocCategoryInternal"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterConstant">
+                                    <PropertyValue Property="Constant" String="PR"/>
+                                    <PropertyValue Property="ValueListProperty" String="FuncLocCategoryInternal"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.PartnersType/PartnerId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="RoleParCustVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="PartnerId"/>
+                                    <PropertyValue Property="ValueListProperty" String="Partner"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="PartnerRole"/>
+                                    <PropertyValue Property="ValueListProperty" String="Parvw"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MC_NAME1"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MC_NAME2"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="POST_CODE1"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MC_CITY1"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MC_STREET"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="HOUSE_NUM1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.SupFuncLocVHType/FunctionalLocationCategory" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Typ TechnPlatz"/>
+                        <PropertyValue Property="CollectionPath" String="I_FuncnlLocCatStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="FunctionalLocationCategory"/>
+                                    <PropertyValue Property="ValueListProperty" String="FunctionalLocationCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FunctionalLocationCategory_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.SupFuncLocVHType/TechnicalObjectType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Objektart"/>
+                        <PropertyValue Property="CollectionPath" String="I_TechnicalObjectTypeStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TechnicalObjectType"/>
+                                    <PropertyValue Property="ValueListProperty" String="TechnicalObjectType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="TechnicalObjectType_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.cds_xdscxeam_ui_conspoint_srv_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.ConsPointType/StartDate" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.cds_xdscxeam_ui_conspoint_srv_Entities/Partners" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>PartnerName</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>PartnerName</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.cds_xdscxeam_ui_conspoint_srv_Entities/ConsPoint" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Partners"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.cds_xdscxeam_ui_conspoint_srv_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.SAP__Currency/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.SAP__UnitOfMeasure/UnitCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+                <Annotation Term="SAP__CodeList.ExternalCode" Path="ExternalCode"/>
+            </Annotations>
+            <Annotations Target="cds_xdscxeam_ui_conspoint_srv.SAP__UnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.AlternateKeys">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="Key">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="Name" Path="ExternalCode"/>
+                                        <PropertyValue Property="Alias" String="ExternalCode"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/dsc/EAM_UI_CONSPT_SRV_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://sl20s4h003.dsc-gmbh.org:44300/sap/opu/odata/dsc/EAM_UI_CONSPT_SRV_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
